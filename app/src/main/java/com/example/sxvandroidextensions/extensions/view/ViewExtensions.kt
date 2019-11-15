@@ -27,7 +27,6 @@ fun View.visibleIf(visible: Boolean) {
 }
 
 fun View.justVisibleIf(visible: Boolean) {
-    isVisible
     if (visible)
         show()
     else
@@ -39,7 +38,7 @@ fun View.generateViewId() {
 }
 
 inline var View.startPadding: Int
-    get() = paddingLeft
+    get() = paddingStart
     set(value) = setPadding(value, paddingTop, paddingRight, paddingBottom)
 
 var View.topPadding: Int
@@ -47,31 +46,32 @@ var View.topPadding: Int
     set(value) = setPadding(paddingLeft, value, paddingRight, paddingBottom)
 
 inline var View.endPadding: Int
-    get() = paddingLeft
+    get() = paddingEnd
     set(value) = setPadding(paddingLeft, paddingTop, value, paddingBottom)
 
 inline var View.bottomPadding: Int
-    get() = paddingTop
+    get() = paddingBottom
     set(value) = setPadding(paddingLeft, paddingTop, paddingRight, value)
 
 inline var View.startPaddingRes: Int
-    get() = paddingLeft
+    get() = throw NoGetterException()
     set(@DimenRes value) = setPadding(getDimen(value), paddingTop, paddingRight, paddingBottom)
 
 var View.topPaddingRes: Int
-    get() = paddingTop
+    get() = throw NoGetterException()
     set(@DimenRes value) = setPadding(paddingLeft, getDimen(value), paddingRight, paddingBottom)
 
 inline var View.endPaddingRes: Int
-    get() = paddingLeft
+    get() = throw NoGetterException()
     set(@DimenRes value) = setPadding(paddingLeft, paddingTop, getDimen(value), paddingBottom)
 
 inline var View.bottomPaddingRes: Int
-    get() = paddingTop
+    get() = throw NoGetterException()
     set(@DimenRes value) = setPadding(paddingLeft, paddingTop, paddingRight, getDimen(value))
 
 /**
  * Sets this view's horizontal padding
+ * @see View.setPadding
  * @throws NoGetterException if you try to get its value
  * */
 
@@ -81,6 +81,7 @@ var View.horizontalPadding: Int
 
 /**
  * Sets this view's vertical padding
+ * @see View.setPadding
  * @throws NoGetterException if you try to get its value
  * */
 
@@ -91,6 +92,7 @@ var View.verticalPadding: Int
 
 /**
  * Sets this view's horizontal padding with resource value
+ * @see View.setPadding
  * @throws NoGetterException if you try to get its value
  * */
 
@@ -100,6 +102,7 @@ var View.horizontalPaddingRes: Int
 
 /**
  * Sets this view's vertical padding with resource value
+ * @see View.setPadding
  * @throws NoGetterException if you try to get its value
  * */
 
